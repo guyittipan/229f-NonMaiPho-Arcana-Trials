@@ -10,4 +10,9 @@ public class Monster : MonoBehaviour
     {
         return type == MonsterType.Rare ? 5 : 1;
     }
+    public float GetMoveSpeed()
+{
+    return type == MonsterType.Rare ? 3f : 1.5f;
+}
+
 }

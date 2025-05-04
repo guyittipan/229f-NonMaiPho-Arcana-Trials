@@ -9,6 +9,7 @@ public class SpellCollision : MonoBehaviour
             Monster monster = other.GetComponent<Monster>();
             if (monster != null)
             {
+                Debug.Log("Hit monster type: " + monster.type);
                 ScoreManager.instance.AddScore(monster.GetScoreValue());
                 GameManager.instance.MonsterKilled();
             }
