@@ -4007,7 +4007,7 @@ MonoBehaviour:
   resultText: {fileID: 1137064007}
   fadeCanvas: {fileID: 252281429}
   fadeDuration: 1
-  nextSceneName: Level 3
+  nextSceneName: Credit
 --- !u!4 &1363945836
 Transform:
   m_ObjectHideFlags: 0
