@@ -1,5 +1,7 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using TMPro;
+using System.Collections;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,7 +13,12 @@ public class GameManager : MonoBehaviour
     public float timeRemaining = 30f;
     public float bonusMultiplier = 2f;
     public TextMeshProUGUI timeText;
-    public TextMeshProUGUI resultText; // Center screen score text
+    public TextMeshProUGUI resultText;
+
+    public CanvasGroup fadeCanvas;           // Reference to black fade image
+    public float fadeDuration = 1f;          // How long to fade
+    public string nextSceneName = "Level2";  // Name of next scene
+
     private bool gameEnded = false;
 
     void Awake()
@@ -42,7 +49,6 @@ public class GameManager : MonoBehaviour
         if (killedCount >= totalMonsters)
         {
             Debug.Log("All monsters killed → EndGame called");
-
             EndGame(bonus: true); // All monsters defeated – give time bonus
         }
     }
@@ -62,5 +68,27 @@ public class GameManager : MonoBehaviour
 
         resultText.text = "Final Score: " + finalScore;
         resultText.gameObject.SetActive(true); // Show result text
+
+        StartCoroutine(FadeAndLoadNextScene());
     }
+
+    IEnumerator FadeAndLoadNextScene()
+    {
+    // 🕒 Wait before fade starts (e.g., show score for 3 seconds)
+    yield return new WaitForSeconds(3f);
+
+    float timer = 0f;
+    fadeCanvas.blocksRaycasts = true;
+
+    while (timer < fadeDuration)
+    {
+        timer += Time.deltaTime;
+        fadeCanvas.alpha = Mathf.Lerp(0, 1, timer / fadeDuration);
+        yield return null;
+    }
+
+    yield return new WaitForSeconds(0.5f);
+    SceneManager.LoadScene(nextSceneName);
+    }
+
 }

@@ -3684,6 +3684,7 @@ MonoBehaviour:
   shootPoint: {fileID: 1306183473}
   bulletPrefab: {fileID: 7118728280738794102, guid: a00c992b3653e1242b88ba54710d5660, type: 3}
   flightTime: 1
+  cooldown: 1
 --- !u!1 &1323797357
 GameObject:
   m_ObjectHideFlags: 0
