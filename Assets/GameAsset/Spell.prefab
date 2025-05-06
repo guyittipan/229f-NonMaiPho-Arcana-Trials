@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6034808919585452068}
   - component: {fileID: 2858835858518457256}
   - component: {fileID: 4570518575017498529}
+  - component: {fileID: -1160792556967442688}
   m_Layer: 6
   m_Name: Spell
   m_TagString: Untagged
@@ -202,3 +203,16 @@ CircleCollider2D:
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
   m_Radius: 11.215968
+--- !u!114 &-1160792556967442688
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3130965364246269206}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f025af890ce7fa943aadd3bc694553fd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 180
